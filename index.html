@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subnet Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header><div><h1>Subnet calculator</h1><p>Explore IPv4 networks, address ranges, binary boundaries, and evenly split subnets.</p></div><button class="icon-button" id="theme" aria-label="Toggle color theme" title="Toggle color theme">&#9728;&#65039;<span class="sr-only">Toggle color theme</span></button></header>
+    <section class="hero"><div class="input-row"><div class="input-wrap"><label for="cidr">IP address / CIDR</label><input id="cidr" value="192.168.10.37/26" autocomplete="off" spellcheck="false"><div id="error" class="error" role="alert"></div></div><button class="sample" id="sample" type="button">Use example</button></div></section>
+    <div class="grid">
+      <section class="card"><h2>Network details <span id="ip-type" class="badge"></span></h2><div id="results" class="results"></div><p id="normalization" class="note"></p></section>
+      <section class="card"><h2>Binary view <button id="binary-toggle" class="copy" aria-pressed="true">Hide</button></h2><div id="binary"></div><div id="legend" class="legend"><span class="network"><i></i>network bits</span><span class="host"><i></i>host bits</span></div></section>
+      <section class="card"><h2>Address formats</h2><div id="address-forms" class="address-forms"></div></section>
+      <section class="card"><h2>Contains check</h2><label for="contains-ip">IP address</label><input id="contains-ip" placeholder="10.0.0.42"><p id="contains-result" class="status"></p></section>
+      <section class="card full"><h2>Subnet splitter</h2><div class="split-controls"><div><label for="split-mode">Mode</label><select id="split-mode"><option value="equal">Equal subnets</option><option value="vlsm">VLSM by host counts</option></select></div><div id="equal-controls"><label for="prefix">New prefix length</label><select id="prefix"></select></div><div id="vlsm-controls" hidden><label for="host-counts">Host counts</label><input id="host-counts" placeholder="100, 50, 10"></div></div><p id="vlsm-help" class="vlsm-help" hidden>Enter required usable hosts separated by commas. Largest requests are allocated first.</p><div class="split-actions"><button id="export-csv" type="button" disabled>Export CSV</button><button id="copy-table" type="button" disabled>Copy all</button></div><div id="subnets" class="table-wrap"></div></section>
+    </div>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
